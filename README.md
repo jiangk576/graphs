@@ -19,7 +19,7 @@ There is a substantial amount of written literature on the topic.  One nice sour
 **Networks  in  the  Natural  World** Finally there are many examples in the Natural world of networks that can be represented as graphs. The human brain and current deep learning neural networks in perhaps our favorite. As a child you perhaps studied the food chain. Which animal eats which other with 'man' at the top of the food chain. Another example could be the humble family tree. Deep learning neutral networks are a fashion now and have use cases in Finance. 
 
 ### Repository
-This repository holds our code, examples, notebooks, data files produced and is a work in progress.  You are welcome to get involved. Send us your thoughts, ideas. You can find us on our [blog](www.mlexperience.org). Conclusions may not emerge for some time given the depth of the field and complexity involved. Tune in frequently. 
+This repository holds our code, examples, notebooks, data files produced and is a work in progress.  You are welcome to get involved. Send us your thoughts, ideas. You can find us on our [blog](https://mooredvd.wordpress.com/). Conclusions may not emerge for some time given the depth of the field and complexity involved. Tune in frequently. 
 
 
 
