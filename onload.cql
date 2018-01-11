@@ -35,3 +35,4 @@ Store import files in the import folder for Neo
 LOAD CSV WITH HEADERS FROM  "file:///prods.csv" AS line
 CREATE (product:Product { id: line.ASIN});
 
+C:\Users\moore\AppData\Roaming\Neo4j Desktop\Application\neo4jDatabases\database-4fbf7e0f-fd75-4a99-8f23-9edc40981ae5\installation-3.3.1\import
