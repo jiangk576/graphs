@@ -1,0 +1,41 @@
+//list groups and categories within group
+MATCH (n:Group) 
+MATCH (u:Cat)-[:in_group]->(n)
+RETURN n.name, u.name;
+
+//list groups, categories, and sub categories within groups
+MATCH (n:Group) 
+MATCH (u:Cat)-[:in_group]->(n)
+MATCH (w:Sub)-[:part_of]->(u)
+RETURN n.name, u.name, w.name;
+
+//list of groups, cats, sub categories and count micro cats
+MATCH (n:Group) 
+MATCH (u:Cat)-[:in_group]->(n)
+MATCH (w:Sub)-[:part_of]->(u)
+MATCH (x:Micro)-[:is_micro_cat]->(w)
+RETURN n.name, u.name, w.name, COUNT(x);
+
+//list of group, cat, sub, count micro, count products,
+MATCH (n:Group) 
+MATCH (u:Cat)-[:in_group]->(n)
+MATCH (w:Sub)-[:part_of]->(u)
+MATCH (x:Micro)-[:is_micro_cat]->(w)
+MATCH (y:Product)-[:belongs_to]->(x)
+RETURN n.name, u.name, w.name, COUNT(DISTINCT(x)), COUNT(y);
+
+//list of group, cat, sub, count mirco, count products, reviews
+//just products in 'Book'
+MATCH (n:Group) 
+MATCH (u:Cat)-[:in_group]->(n)
+MATCH (w:Sub)-[:part_of]->(u)
+MATCH (x:Micro)-[:is_micro_cat]->(w)
+MATCH (y:Product)-[:belongs_to]->(x)
+MATCH (y)-[:review]->(a:Review)
+WHERE y.group = "Book"
+RETURN n.name, u.name, w.name, COUNT(DISTINCT(x)), COUNT(DISTINCT(y)), COUNT(a);
+
+//customer and count of reviews by customer
+MATCH (a:Customer)
+MATCH (a)-[:reviewed]->(b:Review)
+RETURN DISTINCT(a.id), COUNT(b);
