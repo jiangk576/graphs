@@ -48,3 +48,14 @@ RETURN COUNT(DISTINCT(y)), COUNT(a), COUNT(DISTINCT(c));
 
 //count discrete values in the nodes
 MATCH (n) WHERE EXISTS(n.status) RETURN DISTINCT "node" as entity, n.status AS status, COUNT(n) AS Number;
+
+
+MATCH (n:Review) RETURN COUNT(n) AS NUM,
+n.rating AS rate,
+n.votes AS votes,
+n.helpful As help;
+
+MATCH (n:Review) 
+WITH n.customer as Cust, COUNT(n) as Cou
+WHERE Cou > 10
+RETURN Cust, Cou;
