@@ -39,3 +39,12 @@ RETURN n.name, u.name, w.name, COUNT(DISTINCT(x)), COUNT(DISTINCT(y)), COUNT(a);
 MATCH (a:Customer)
 MATCH (a)-[:reviewed]->(b:Review)
 RETURN DISTINCT(a.id), COUNT(b);
+
+//product reviews from distinct customers
+MATCH (y:Product)-[:review]->(a:Review)
+MATCH (c:Customer)-[:reviewed]->(a)
+WHERE y.group = "Book"
+RETURN COUNT(DISTINCT(y)), COUNT(a), COUNT(DISTINCT(c));
+
+//count discrete values in the nodes
+MATCH (n) WHERE EXISTS(n.status) RETURN DISTINCT "node" as entity, n.status AS status, COUNT(n) AS Number;
