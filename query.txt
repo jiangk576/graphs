@@ -59,3 +59,7 @@ MATCH (n:Review)
 WITH n.customer as Cust, COUNT(n) as Cou
 WHERE Cou > 10
 RETURN Cust, Cou;
+
+start n=node(*) match (n)-[r1]-(),(n)-[r2]-() where type(r1)="co_pur" and type(r2)="similar" return n,count(n);
+
+match (n)-[r1]-(),(n)-[r2]-() where type(r1)="co_pur" and type(r2)="similar" return n,count(n), count(r1), count(r2);
